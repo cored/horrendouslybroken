@@ -13,7 +13,7 @@ describe Bucket do
   end
   context "validations" do
     it "should have a unique name" do
-      new_bucket = FactoryGirl.build(:bucket, name: 'The Bucket')
+      new_bucket = bucket.dup
       new_bucket.should_not be_valid
     end
 
