@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :bucket do
     name "MyString"
+    description "MyDescription"
   end
 end
