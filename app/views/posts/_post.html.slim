@@ -1,2 +1,4 @@
 .post id=("post-#{post.id}")
+  = post.name
+  = "Submitted at: #{post.created_at}"
   = post_link(post)
