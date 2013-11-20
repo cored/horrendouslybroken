@@ -2,8 +2,12 @@ require 'spec_helper'
 
 describe PostsController do
 
-  let(:bucket) { FactoryGirl.create(:bucket, name: 'My Bucket') }
-  let(:valid_attributes) {  FactoryGirl.attributes_for(:post, bucket: bucket)  }
+  let(:bucket) do 
+    FactoryGirl.create(:bucket, name: 'My Bucket') 
+  end
+  let(:valid_attributes) do  
+    FactoryGirl.attributes_for(:post, bucket_id: bucket.id)  
+  end
   let(:valid_session) { {} }
 
   describe "GET index" do
