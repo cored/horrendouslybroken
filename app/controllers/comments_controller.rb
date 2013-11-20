@@ -4,8 +4,9 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comment_params)
     if @comment.save
       flash[:notice] = "Added Comment"
-      redirect_to new_post_comment_path(post_id:@comment.post_id, id:@comment.id)
+      redirect_to post_comment_path(post_id:@comment.commentable_id, id:@comment.id)
     else
+      @post = Comment.new
       render action: :new
     end
   end
@@ -22,7 +23,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params[:comment].permit(:body, :post)
+    params[:comment].permit(:body)
   end
 
 end
