@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120145249) do
+ActiveRecord::Schema.define(version: 20131120221857) do
 
   create_table "buckets", force: true do |t|
     t.string   "name"
@@ -22,7 +22,8 @@ ActiveRecord::Schema.define(version: 20131120145249) do
 
   create_table "comments", force: true do |t|
     t.text    "body"
-    t.integer "post_id"
+    t.integer "commentable_id"
+    t.string  "commentable_type"
     t.integer "user_id"
   end
 
